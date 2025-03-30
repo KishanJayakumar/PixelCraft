@@ -16,6 +16,7 @@ public class Rotate extends Converter {
         
         // Map pixels from original to rotated positions
         for (int x = 0; x < width; x++) {
+            // Loop through each pixel in the original image
             for (int y = 0; y < height; y++) {
                 int pixel = original.getRGB(x, y);
                 int newX = height - y - 1; // Rotate 90 degrees clockwise
