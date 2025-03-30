@@ -4,10 +4,14 @@ import java.io.IOException;
 public class Rotate extends Converter {
     @Override
     public void convert(String inputFileName, String outputFileName) throws IOException {
+        // Read the image from the input file
+        // Get the width and height of the image
         BufferedImage original = readImage(inputFileName);
         int width = original.getWidth();
         int height = original.getHeight();
         
+        // Create a new BufferedImage for the rotated image
+        // The new width and height are swapped for a 90-degree rotation
         BufferedImage rotated = new BufferedImage(height, width, original.getType());
         
         // Map pixels from original to rotated positions
@@ -20,6 +24,7 @@ public class Rotate extends Converter {
             }
         }
         
+        // Write the rotated image to the output file
         writeImage(rotated, outputFileName);
     }
 }
