@@ -8,15 +8,14 @@ public class Rotate extends Converter {
         int width = original.getWidth();
         int height = original.getHeight();
         
-        // Create new image with swapped dimensions
         BufferedImage rotated = new BufferedImage(height, width, original.getType());
         
         // Map pixels from original to rotated positions
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
                 int pixel = original.getRGB(x, y);
-                int newX = y;                // New X becomes original Y
-                int newY = width - x - 1;    // New Y counts backward from original X
+                int newX = height - y - 1; // Rotate 90 degrees clockwise
+                int newY = x; // Rotate 90 degrees clockwise
                 rotated.setRGB(newX, newY, pixel);
             }
         }
